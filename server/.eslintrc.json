@@ -1,0 +1,19 @@
+{
+  "env": {
+    "es6": true,
+    "node": true,
+    "jest": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2018
+  },
+  "extends": [
+    "eslint:recommended",
+    "airbnb"
+  ],
+  "rules": {
+    "no-param-reassign": 0,
+    "func-names": 0,
+    "camelcase": 0
+  }
+}
