@@ -1,11 +1,17 @@
-const page = 'APP';
+const page = 'APP_';
 
 const actions = {
-  SET_DEALERS: `${page}_SET_DEALERS`,
+  SET_THEME: `${page}SET_THEME`,
+  SET_UNITS: `${page}SET_UNITS`,
 
-  setDealers: (dealers) => ({
-    type: actions.SET_DEALERS,
-    payload: dealers,
+  setTheme: (theme) => ({
+    type: actions.SET_THEME,
+    payload: theme,
+  }),
+
+  setUnits: (units) => ({
+    type: actions.SET_UNITS,
+    payload: units,
   }),
 };
 

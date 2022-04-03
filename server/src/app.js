@@ -1,6 +1,7 @@
 const feathers = require('@feathersjs/feathers');
 const configuration = require('@feathersjs/configuration');
 const express = require('@feathersjs/express');
+const cors = require('cors');
 const socketio = require('@feathersjs/socketio');
 const logger = require('./logger');
 
@@ -11,6 +12,12 @@ const services = require('./services');
 const appHooks = require('./app.hooks');
 
 const app = express(feathers());
+
+const corsOptions = {
+  origin: 'http://localhost:4444',
+};
+
+app.use(cors(corsOptions));
 
 // Load app configuration
 app.configure(configuration());

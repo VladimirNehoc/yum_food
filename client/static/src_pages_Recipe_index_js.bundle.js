@@ -1,0 +1,82 @@
+"use strict";
+/*
+ * ATTENTION: The "eval" devtool has been used (maybe by default in mode: "development").
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
+(self["webpackChunkperx_demo_app"] = self["webpackChunkperx_demo_app"] || []).push([["src_pages_Recipe_index_js"],{
+
+/***/ "./src/containers/ContainerBlock/StyledComponent.js":
+/*!**********************************************************!*\
+  !*** ./src/containers/ContainerBlock/StyledComponent.js ***!
+  \**********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ \"./node_modules/styled-components/dist/styled-components.browser.esm.js\");\nvar _templateObject;\n\nfunction _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }\n\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (styled_components__WEBPACK_IMPORTED_MODULE_0__[\"default\"].div(_templateObject || (_templateObject = _taggedTemplateLiteral([\"\\n  width: 100%;\\n  height: 100%;\\n  box-shadow: \", \";\\n  border-radius: \", \";\\n  padding: \", \";\\n  box-sizing: border-box;\\n  background-color: \", \";\\n  color: \", \";\\n\"])), function (props) {\n  return props.theme.containerBlockShadow;\n}, function (props) {\n  return props.theme.borderRadiusM;\n}, function (props) {\n  return \"\".concat(props.theme.paddingL, \" \").concat(props.theme.paddingXL);\n}, function (props) {\n  return props.theme.bgCardColor;\n}, function (props) {\n  return props.theme.textColor;\n}));\n\n//# sourceURL=webpack://perx-demo_app/./src/containers/ContainerBlock/StyledComponent.js?");
+
+/***/ }),
+
+/***/ "./src/containers/ContainerBlock/index.js":
+/*!************************************************!*\
+  !*** ./src/containers/ContainerBlock/index.js ***!
+  \************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! prop-types */ \"./node_modules/prop-types/index.js\");\n/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var _StyledComponent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./StyledComponent */ \"./src/containers/ContainerBlock/StyledComponent.js\");\n\n\n\n\nvar ContainerBlock = function ContainerBlock(_ref) {\n  var children = _ref.children;\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_StyledComponent__WEBPACK_IMPORTED_MODULE_1__[\"default\"], null, children);\n};\n\nContainerBlock.propTypes = {\n  children: prop_types__WEBPACK_IMPORTED_MODULE_2___default().oneOfType([(prop_types__WEBPACK_IMPORTED_MODULE_2___default().element), prop_types__WEBPACK_IMPORTED_MODULE_2___default().arrayOf((prop_types__WEBPACK_IMPORTED_MODULE_2___default().element)), (prop_types__WEBPACK_IMPORTED_MODULE_2___default().string)]).isRequired\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ContainerBlock);\n\n//# sourceURL=webpack://perx-demo_app/./src/containers/ContainerBlock/index.js?");
+
+/***/ }),
+
+/***/ "./src/pages/Recipe/RecipeContent.js":
+/*!*******************************************!*\
+  !*** ./src/pages/Recipe/RecipeContent.js ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var containers_ContainerBlock__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! containers/ContainerBlock */ \"./src/containers/ContainerBlock/index.js\");\n\n\n\nvar RecipeContent = function RecipeContent() {\n  var x = 1;\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(containers_ContainerBlock__WEBPACK_IMPORTED_MODULE_1__[\"default\"], null, \"Content\");\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (RecipeContent);\n\n//# sourceURL=webpack://perx-demo_app/./src/pages/Recipe/RecipeContent.js?");
+
+/***/ }),
+
+/***/ "./src/pages/Recipe/RecipeInfo.js":
+/*!****************************************!*\
+  !*** ./src/pages/Recipe/RecipeInfo.js ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var containers_ContainerBlock__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! containers/ContainerBlock */ \"./src/containers/ContainerBlock/index.js\");\n\n\n\nvar RecipeInfo = function RecipeInfo() {\n  var x = 1;\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(containers_ContainerBlock__WEBPACK_IMPORTED_MODULE_1__[\"default\"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", {\n    className: \"head\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", {\n    className: \"head_time\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"span\", null, \"30 \\u043C\\u0438\\u043D\")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", {\n    className: \"head_add\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"span\", null, \"\\u0414\\u043E\\u0431\\u0430\\u0432\\u0438\\u0442\\u044C\"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", {\n    className: \"title\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", {\n    className: \"title_text\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"span\", null, \"\\u0418\\u043D\\u0433\\u0440\\u0435\\u0434\\u0438\\u0435\\u043D\\u0442\\u044B\")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", {\n    className: \"title_portions\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"span\", null, \"4 \\u043F\\u043E\\u0440\\u0446\\u0438\\u0438\"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", {\n    className: \"ingredients\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", {\n    className: \"ingredients_item\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", {\n    className: \"ingredients_item_name\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"span\", null, \"\\u0421\\u043F\\u0430\\u0433\\u0435\\u0442\\u0442\\u0438\")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", {\n    className: \"ingredients_item_line\"\n  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", {\n    className: \"ingredients_item_count\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"span\", null, \"250 \\u0433\")))));\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (RecipeInfo);\n\n//# sourceURL=webpack://perx-demo_app/./src/pages/Recipe/RecipeInfo.js?");
+
+/***/ }),
+
+/***/ "./src/pages/Recipe/RecipeSteps.js":
+/*!*****************************************!*\
+  !*** ./src/pages/Recipe/RecipeSteps.js ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var containers_ContainerBlock__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! containers/ContainerBlock */ \"./src/containers/ContainerBlock/index.js\");\n\n\n\nvar RecipeSteps = function RecipeSteps() {\n  var x = 1;\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(containers_ContainerBlock__WEBPACK_IMPORTED_MODULE_1__[\"default\"], null, \"Steps\");\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (RecipeSteps);\n\n//# sourceURL=webpack://perx-demo_app/./src/pages/Recipe/RecipeSteps.js?");
+
+/***/ }),
+
+/***/ "./src/pages/Recipe/StyledComponent.js":
+/*!*********************************************!*\
+  !*** ./src/pages/Recipe/StyledComponent.js ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ \"./node_modules/styled-components/dist/styled-components.browser.esm.js\");\nvar _templateObject;\n\nfunction _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }\n\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (styled_components__WEBPACK_IMPORTED_MODULE_0__[\"default\"].div(_templateObject || (_templateObject = _taggedTemplateLiteral([\"\\n  display: grid;\\n  grid-template-areas: 'info content'\\n                        'info steps';\\n  grid-gap: 15px;\\n  grid-template-columns: 300px 1fr;\\n\\n  .info-block {\\n    grid-area: info;\\n\\n    display: flex;\\n    flex-direction: column;\\n\\n    .head {\\n      display: flex;\\n      justify-content: space-between;\\n\\n      &_time {\\n        \\n      }\\n\\n      &_add {\\n        text-transform: uppercase;\\n      }\\n    }\\n\\n    .title {\\n      display: flex;\\n      justify-content: space-between;\\n      align-items: center;\\n      margin: 15px 0;\\n\\n      &_text {\\n        font-size: \", \";\\n      }\\n\\n      &_portions {\\n\\n      }\\n    }\\n\\n    .ingredients {\\n      &_item {\\n        display: flex;\\n        align-items: center;\\n\\n        &_name {\\n          \\n        }\\n\\n        &_line {\\n          height: 1px;\\n          border-top: 1px solid \", \";\\n          flex-grow: 1;\\n          margin: 0 10px;\\n          opacity: .4;\\n          position: relative;\\n          top: 1px;\\n        }\\n\\n        &_count {\\n\\n        }\\n      }\\n    }\\n  }\\n\\n  .content-block {\\n    grid-area: content;\\n  }\\n\\n  .steps-block {\\n    grid-area: steps;\\n  }\\n\"])), function (props) {\n  return props.theme.fontSizeM;\n}, function (props) {\n  return props.theme.textColor;\n}));\n\n//# sourceURL=webpack://perx-demo_app/./src/pages/Recipe/StyledComponent.js?");
+
+/***/ }),
+
+/***/ "./src/pages/Recipe/index.js":
+/*!***********************************!*\
+  !*** ./src/pages/Recipe/index.js ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ \"./node_modules/react-redux/es/index.js\");\n/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-router-dom */ \"./node_modules/react-router/index.js\");\n/* harmony import */ var api__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! api */ \"./src/api.js\");\n/* harmony import */ var store_recipe_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! store/recipe/actions */ \"./src/store/recipe/actions.js\");\n/* harmony import */ var _RecipeInfo__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./RecipeInfo */ \"./src/pages/Recipe/RecipeInfo.js\");\n/* harmony import */ var _RecipeContent__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./RecipeContent */ \"./src/pages/Recipe/RecipeContent.js\");\n/* harmony import */ var _RecipeSteps__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./RecipeSteps */ \"./src/pages/Recipe/RecipeSteps.js\");\n/* harmony import */ var _StyledComponent__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./StyledComponent */ \"./src/pages/Recipe/StyledComponent.js\");\n\n\n\n\n\n\n\n\n\nvar setIsLoadingRecipeData = store_recipe_actions__WEBPACK_IMPORTED_MODULE_3__[\"default\"].setIsLoadingRecipeData,\n    setRecipeData = store_recipe_actions__WEBPACK_IMPORTED_MODULE_3__[\"default\"].setRecipeData;\n\nvar RecipePage = function RecipePage() {\n  var dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useDispatch)();\n\n  var _useParams = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_8__.useParams)(),\n      recipeId = _useParams.recipeId;\n\n  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {\n    dispatch(setIsLoadingRecipeData(true));\n    api__WEBPACK_IMPORTED_MODULE_2__[\"default\"].get('get-recipe-by-id', {\n      id: recipeId\n    }).then(function (res) {\n      console.log(res[0]);\n      dispatch(setRecipeData(res[0]));\n    })[\"finally\"](function () {\n      dispatch(setIsLoadingRecipeData(false));\n    });\n  }, []);\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_StyledComponent__WEBPACK_IMPORTED_MODULE_7__[\"default\"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", {\n    className: \"info-block\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_RecipeInfo__WEBPACK_IMPORTED_MODULE_4__[\"default\"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", {\n    className: \"content-block\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_RecipeContent__WEBPACK_IMPORTED_MODULE_5__[\"default\"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", {\n    className: \"steps-block\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_RecipeSteps__WEBPACK_IMPORTED_MODULE_6__[\"default\"], null)));\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (RecipePage);\n\n//# sourceURL=webpack://perx-demo_app/./src/pages/Recipe/index.js?");
+
+/***/ })
+
+}]);

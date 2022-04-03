@@ -1,8 +1,8 @@
-const page = 'MAIN';
+const page = 'MAIN_';
 
 const actions = {
-  SET_IS_LOADING_ITEMS: `${page}_SET_IS_LOADING`,
-  SET_ITEMS: `${page}_SET_ITEMS`,
+  SET_IS_LOADING_ITEMS: `${page}SET_IS_LOADING`,
+  SET_ITEMS: `${page}SET_ITEMS`,
 
   setIsLoadingItems: (isLoading) => ({
     type: actions.SET_IS_LOADING_ITEMS,

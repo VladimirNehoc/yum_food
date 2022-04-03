@@ -1,15 +1,21 @@
 import actions from './actions';
 
 const appInitialState = {
-  dealers: [],
+  theme: 'light',
+  units: [],
 };
 
 const reducer = (state = appInitialState, { type, payload } = {}) => {
   switch (type) {
-    case actions.SET_DEALERS:
+    case actions.SET_THEME:
       return {
         ...state,
-        dealers: payload,
+        theme: payload,
+      };
+    case actions.SET_UNITS:
+      return {
+        ...state,
+        units: payload,
       };
     default:
       return state;

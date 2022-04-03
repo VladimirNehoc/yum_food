@@ -6,12 +6,12 @@ import {
 } from 'react-router-dom';
 
 const Main = React.lazy(() => import('./pages/Main'));
-const Basket = React.lazy(() => import('./pages/Basket'));
+const Recipe = React.lazy(() => import('./pages/Recipe'));
 
 const AppRoutes = () => (
   <Routes>
     <Route path="/main" element={<Main />} />
-    <Route path="/basket" element={<Basket />} />
+    <Route path="/recipe/:recipeId" element={<Recipe />} />
     <Route path="*" element={<Navigate to="/main" />} />
   </Routes>
 );

@@ -16,6 +16,11 @@ module.exports = (app) => {
     define: {
       freezeTableName: true,
       paranoid: true,
+      defaultScope: {
+        attributes: {
+          exclude: ['createdAt', 'updatedAt', 'deletedAt'],
+        },
+      },
     },
   });
 
@@ -35,12 +40,19 @@ module.exports = (app) => {
       }
     });
 
-    const databaseSync = await sequelize.sync({ force: true, alter: true });
+    const forceMode = false;
+
+    const databaseSync = await sequelize.sync({
+      force: forceMode,
+      alter: true,
+    });
 
     // Sync to the database
     app.set('sequelizeSync', databaseSync);
 
-    await generateSeeds(app);
+    if (forceMode) {
+      await generateSeeds(app);
+    }
 
     return result;
   };

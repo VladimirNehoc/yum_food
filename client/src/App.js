@@ -1,42 +1,62 @@
 import React, { Suspense, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import styled, { ThemeProvider } from 'styled-components';
+import { useSelector, useDispatch } from 'react-redux';
+import _ from 'lodash';
 
+import GlobalStyles from 'components/GlobalStyles';
+
+import Header from 'components/Header';
+import PageContainer from 'containers/PageContainer';
 import api from 'api';
+import appActions from 'store/app/actions';
 import AppRoutes from './AppRoutes';
 
-import basketActions from './store/basket/actions';
+import { light, dark } from '../theme';
 
-import './style.less';
+const { setUnits } = appActions;
 
-const { addFromStorage } = basketActions;
+const AppComponent = styled.div`
+    width: 100%;
+    font-size: 14px;
+    
+    a {
+      text-decoration: none;
+    }
+  `;
 
 const App = () => {
   const dispatch = useDispatch();
 
+  const { theme, units } = useSelector((state) => state.app);
+
+  // Установка темы приложения
+  const themeData = theme === 'light' ? light : dark;
+
   useEffect(() => {
-    // Получение корзины из localStorage
-    try {
-      const basketJSON = localStorage.getItem('basket');
-      const basketData = JSON.parse(basketJSON);
-
-      dispatch(addFromStorage(basketData));
-    } catch (e) {
-      localStorage.removeItem('basket');
-    }
-
-    // Получение актуальных дилеров
-    api.get('dealers')
+    api.get('units', { $limit: 50 })
       .then((res) => {
-        console.log('Актуальные ID дилеров -', res.data);
+        const unitsData = _.keyBy(res.data, 'id');
+
+        dispatch(setUnits(unitsData));
       });
   }, []);
 
+  if (_.isEmpty(units)) return null;
+
   return (
-    <div className="app">
-      <Suspense fallback={<div>Загрузка...</div>}>
-        <AppRoutes />
-      </Suspense>
-    </div>
+    <ThemeProvider theme={themeData}>
+      <AppComponent>
+        <GlobalStyles />
+
+        <Suspense fallback={<div>Загрузка...</div>}>
+          <Header />
+
+          <PageContainer>
+            <AppRoutes />
+          </PageContainer>
+        </Suspense>
+      </AppComponent>
+    </ThemeProvider>
   );
 };
 
