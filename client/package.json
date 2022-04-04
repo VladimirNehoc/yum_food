@@ -1,5 +1,5 @@
 {
-  "name": "perx-demo_app",
+  "name": "yum_food_app",
   "version": "1.0.0",
   "author": "vladimirnehoc@mail.com",
   "scripts": {
@@ -14,6 +14,7 @@
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
     "lodash": "^4.17.21",
+    "moment": "^2.29.2",
     "prop-types": "^15.8.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",

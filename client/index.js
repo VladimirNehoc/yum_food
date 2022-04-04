@@ -1,16 +1,20 @@
 const express = require('express');
 require('dotenv').config();
 
+const _ = require('lodash');
+
 const app = express();
 
 app.use(express.static(`${__dirname}/static`));
 
-app.get('/script.js', (req, res) => {
-  res.sendFile(`${__dirname}/public${req.originalUrl}`);
+app.get('/*.js', (req, res) => {
+  const params = _.split(req.originalUrl, '/');
+
+  res.sendFile(`${__dirname}/static/${params[params.length - 1]}`);
 });
 
-app.get('/*.js', (req, res) => {
-  res.sendFile(`${__dirname}${req.originalUrl}`);
+app.get('/*.css', (req, res) => {
+  res.sendFile(`${__dirname}/public${req.originalUrl}`);
 });
 
 app.get('*', (req, res) => {

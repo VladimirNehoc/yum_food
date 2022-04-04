@@ -15,7 +15,7 @@ const reducer = (state = initialState, { type, payload } = {}) => {
     case actions.SET_RECIPE_DATA:
       return {
         ...state,
-        data: payload,
+        recipeData: payload,
       };
     default:
       return state;

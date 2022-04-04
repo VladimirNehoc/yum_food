@@ -5,6 +5,7 @@ import api from 'api';
 
 import recipeActions from 'store/recipe/actions';
 
+import _ from 'lodash';
 import RecipeInfo from './RecipeInfo';
 import RecipeContent from './RecipeContent';
 import RecipeSteps from './RecipeSteps';
@@ -18,6 +19,8 @@ const {
 const RecipePage = () => {
   const dispatch = useDispatch();
 
+  const { recipeData } = useSelector((state) => state.recipe);
+
   const { recipeId } = useParams();
 
   useEffect(() => {
@@ -25,13 +28,14 @@ const RecipePage = () => {
 
     api.get('get-recipe-by-id', { id: recipeId })
       .then((res) => {
-        console.log(res[0]);
         dispatch(setRecipeData(res[0]));
       })
       .finally(() => {
         dispatch(setIsLoadingRecipeData(false));
       });
   }, []);
+
+  if (_.isEmpty(recipeData)) return null;
 
   return (
     <StyledComponent>

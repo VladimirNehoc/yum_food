@@ -40,7 +40,7 @@ module.exports = (app) => {
       }
     });
 
-    const forceMode = false;
+    const forceMode = app.get('forceMode');
 
     const databaseSync = await sequelize.sync({
       force: forceMode,

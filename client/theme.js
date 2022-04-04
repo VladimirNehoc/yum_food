@@ -40,6 +40,7 @@ export const light = {
   bgColorHoverDefault: '#eee',
 
   textColor: '#222',
+  borderColor: '#777',
   textColorContrast: '#000',
 };
 
@@ -62,5 +63,6 @@ export const dark = {
   bgColorHoverDefault: '#333',
 
   textColor: '#eee',
+  borderColor: '#777',
   textColorContrast: '#fff',
 };

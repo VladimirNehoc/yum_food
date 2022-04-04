@@ -47,10 +47,9 @@ const App = () => {
     <ThemeProvider theme={themeData}>
       <AppComponent>
         <GlobalStyles />
+        <Header />
 
         <Suspense fallback={<div>Загрузка...</div>}>
-          <Header />
-
           <PageContainer>
             <AppRoutes />
           </PageContainer>
