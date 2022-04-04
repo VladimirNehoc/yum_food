@@ -49,8 +49,6 @@ module.exports = function (app) {
           limit: 1,
         });
 
-        // console.log(result);
-
         return result;
       } catch (error) {
         return error.message;

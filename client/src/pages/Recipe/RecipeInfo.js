@@ -4,6 +4,8 @@ import _ from 'lodash';
 
 import ContainerBlock from 'containers/ContainerBlock';
 
+import getDeclination from 'helpers/getDeclination';
+
 const RecipeInfo = () => {
   const dispatch = useDispatch();
 
@@ -40,7 +42,11 @@ const RecipeInfo = () => {
         {
           _.map(ingredients, (ingredient) => {
             const { unitId, count } = ingredient.recipesIngredients;
-            const unitString = _.get(units, `[${unitId}].name`, 'n/a');
+            const unit = _.get(units, `[${unitId}]`, {});
+
+            const unitString = unit.fullPreference
+              ? getDeclination(count, unit.variants)
+              : `${count} ${unit.name}`;
 
             return (
               <div className="ingredients_item" key={ingredient.id}>
@@ -49,7 +55,7 @@ const RecipeInfo = () => {
                 </div>
                 <div className="ingredients_item_line" />
                 <div className="ingredients_item_count">
-                  <span>{`${count} ${unitString}`}</span>
+                  <span>{unitString}</span>
                 </div>
               </div>
             );

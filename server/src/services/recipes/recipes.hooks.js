@@ -1,9 +1,7 @@
 module.exports = {
   before: {
     all: [],
-    find: [(context) => {
-      console.log(context.params);
-    }],
+    find: [],
     get: [],
     create: [],
     update: [],

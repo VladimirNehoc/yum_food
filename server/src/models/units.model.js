@@ -20,6 +20,10 @@ module.exports = function (app) {
       type: DataTypes.STRING,
       allowNull: false,
     },
+    fullPreference: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
+    },
     variants: {
       type: DataTypes.ARRAY(Sequelize.TEXT),
       allowNull: true,

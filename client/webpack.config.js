@@ -10,6 +10,7 @@ module.exports = {
       store: path.resolve(__dirname, 'src/store'),
       settings: path.resolve(__dirname, 'src/settings.js'),
       assets: path.resolve(__dirname, 'src/assets'),
+      helpers: path.resolve(__dirname, 'src/helpers'),
     },
   },
   entry: './src/index.js',

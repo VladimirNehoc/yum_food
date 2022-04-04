@@ -47,7 +47,7 @@ export const light = {
 export const dark = {
   ...theme,
 
-  bgBodyColor: '#000',
+  bgBodyColor: '#222',
   bgCardColor: '#333',
 
   bgColor1: '#F5795B',
