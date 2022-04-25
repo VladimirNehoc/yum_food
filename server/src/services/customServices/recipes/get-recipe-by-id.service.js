@@ -15,7 +15,7 @@ module.exports = function (app) {
 
         const { id } = params.query;
 
-        const result = await recipes.findAll({
+        const result = await recipes.findOne({
           where: {
             id,
           },

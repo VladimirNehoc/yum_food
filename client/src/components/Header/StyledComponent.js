@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export default styled.div`
-  background-color: ${(props) => props.theme.bgColor4};
+  background-color: ${(props) => props.theme.bgHeaderColor};
 
   .container {
     width: 100%;
@@ -37,6 +37,7 @@ export default styled.div`
         background-color: #fff;
         top: 0;
         left: 0;
+        border-radius: 2px;
       }
 
       &:after {
@@ -47,6 +48,7 @@ export default styled.div`
         background-color: #fff;
         bottom: 0;
         left: 0;
+        border-radius: 2px;
       }
     }
 
@@ -100,6 +102,10 @@ export default styled.div`
             background-color: transparent;
             caret-color: ${(props) => props.theme.textColorContrast};
             color: ${(props) => props.theme.textColorContrast};
+
+            &::placeholder {
+              color: ${(props) => props.theme.textColorPlaceholder};;
+            }
           }
         }
 

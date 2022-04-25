@@ -1,0 +1,100 @@
+const theme = {
+  fontFamily: '"Roboto", sans-serif',
+  fontWeight: '300',
+
+  borderRadiusXS: '4px',
+  borderRadiusS: '6px',
+  borderRadiusM: '10px',
+  borderRadiusL: '14px',
+  borderRadiusXL: '18px',
+
+  paddingXS: '3px',
+  paddingS: '5px',
+  paddingM: '10px',
+  paddingL: '15px',
+  paddingXL: '20px',
+
+  fontSizeXS: '0.8rem',
+  fontSizeS: '1rem',
+  fontSizeM: '1.2rem',
+  fontSizeL: '1.4rem',
+  fontSizeXL: '2rem',
+
+  containerBlockShadow: '0 0 15px 0 rgba(0, 0, 0, 0.2)',
+  buttonBlockShadow: '0 0 8px 0 rgba(0, 0, 0, 0.2)',
+
+  inputHeight: '34px',
+};
+
+export const light = {
+  ...theme,
+
+  status: 'light',
+
+  bgBodyColor: '#fff',
+  bgCardColor: '#fff',
+  bgHeaderColor: '#99C8B4',
+
+  bgColor1: '#F5795B',
+  bgColor2: '#FFBC6C',
+  bgColor3: '#FFF8B8',
+  bgColor4: '#99C8B4',
+  bgColorDefault: '#fff',
+  bgColorButton: '#ddd',
+
+  bgColorHover1: '#f1623f',
+  bgColorHover2: '#ffae4b',
+  bgColorHover3: '#fdf183',
+  bgColorHover4: '#70c7a1',
+  bgColorHoverDefault: '#efefef',
+  bgColorHoverButton: '#eee',
+
+  bgColorActive: '#ddd',
+
+  textColor: '#222',
+  textColorPlaceholder: '#999',
+  borderColor: '#777',
+  textColorContrast: '#000',
+
+  inputBgColor: '#dedede',
+  inputPlaceholder: '#999',
+  notValidColor: '#ff0000',
+};
+
+export const dark = {
+  ...theme,
+
+  status: 'dark',
+
+  containerBlockShadow: 'none',
+  buttonBlockShadow: 'none',
+
+  bgBodyColor: '#222',
+  bgCardColor: '#333',
+  bgHeaderColor: '#333',
+
+  bgColor1: '#F5795B',
+  bgColor2: '#FFBC6C',
+  bgColor3: '#FFF8B8',
+  bgColor4: '#99C8B4',
+  bgColorDefault: '#555',
+  bgColorButton: '#555',
+
+  bgColorHover1: '#f1623f',
+  bgColorHover2: '#ffae4b',
+  bgColorHover3: '#fdf183',
+  bgColorHover4: '#70c7a1',
+  bgColorHoverDefault: '#666',
+  bgColorHoverButton: '#666',
+
+  bgColorActive: '#444',
+
+  textColor: '#eee',
+  textColorPlaceholder: '#bbb',
+  borderColor: '#777',
+  textColorContrast: '#fff',
+
+  inputBgColor: '#222',
+  inputPlaceholder: '#777',
+  notValidColor: '#ad3434',
+};

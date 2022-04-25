@@ -26,20 +26,26 @@ export const light = {
 
   bgBodyColor: '#fff',
   bgCardColor: '#fff',
+  bgHeaderColor: '#99C8B4',
 
   bgColor1: '#F5795B',
   bgColor2: '#FFBC6C',
   bgColor3: '#FFF8B8',
   bgColor4: '#99C8B4',
   bgColorDefault: '#fff',
+  bgColorButton: '#fff',
 
   bgColorHover1: '#f1623f',
   bgColorHover2: '#ffae4b',
   bgColorHover3: '#fdf183',
   bgColorHover4: '#70c7a1',
   bgColorHoverDefault: '#eee',
+  bgColorHoverButton: '#efefef',
+
+  bgColorActive: '#ccc',
 
   textColor: '#222',
+  textColorPlaceholder: '#999',
   borderColor: '#777',
   textColorContrast: '#000',
 };
@@ -47,22 +53,31 @@ export const light = {
 export const dark = {
   ...theme,
 
+  containerBlockShadow: 'none',
+  buttonBlockShadow: 'none',
+
   bgBodyColor: '#222',
   bgCardColor: '#333',
+  bgHeaderColor: '#333',
 
   bgColor1: '#F5795B',
   bgColor2: '#FFBC6C',
   bgColor3: '#FFF8B8',
   bgColor4: '#333',
-  bgColorDefault: '#222',
+  bgColorDefault: '#555',
+  bgColorButton: '#555',
 
   bgColorHover1: '#f1623f',
   bgColorHover2: '#ffae4b',
   bgColorHover3: '#fdf183',
   bgColorHover4: '#70c7a1',
-  bgColorHoverDefault: '#333',
+  bgColorHoverDefault: '#666',
+  bgColorHoverButton: '#666',
+
+  bgColorActive: '#555',
 
   textColor: '#eee',
+  textColorPlaceholder: '#bbb',
   borderColor: '#777',
   textColorContrast: '#fff',
 };

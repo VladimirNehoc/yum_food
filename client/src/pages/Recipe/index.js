@@ -28,7 +28,7 @@ const RecipePage = () => {
 
     api.get('get-recipe-by-id', { id: recipeId })
       .then((res) => {
-        dispatch(setRecipeData(res[0]));
+        dispatch(setRecipeData(res));
       })
       .finally(() => {
         dispatch(setIsLoadingRecipeData(false));
