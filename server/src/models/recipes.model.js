@@ -70,6 +70,7 @@ module.exports = (app) => {
         recipesGroups,
         difficulties,
         steps,
+        uploads,
       } = models;
 
       recipes.belongsTo(recipesGroups, {
@@ -78,6 +79,14 @@ module.exports = (app) => {
           allowNull: true,
         },
         as: 'recipesGroup',
+      });
+
+      recipes.belongsTo(uploads, {
+        foreignKey: {
+          name: 'imageId',
+          allowNull: false,
+        },
+        as: 'image',
       });
 
       recipes.belongsTo(difficulties, {

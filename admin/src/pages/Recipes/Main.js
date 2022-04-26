@@ -1,13 +1,36 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import _ from 'lodash';
 
 import Image from 'components/Image';
 import ContainerBlock from 'containers/ContainerBlock';
 
+import api from 'api';
+
+import mainActions from 'store/recipes/actions';
+
+const {
+  setItems,
+  setIsLoadingItems,
+} = mainActions;
+
 const Main = () => {
+  const dispatch = useDispatch();
+
   const { items } = useSelector((state) => state.recipes);
+
+  useEffect(() => {
+    dispatch(setIsLoadingItems(true));
+
+    api.get('recipes')
+      .then((res) => {
+        dispatch(setItems(res.data));
+      })
+      .finally(() => {
+        dispatch(setIsLoadingItems(false));
+      });
+  }, []);
 
   return (
     <div className="list-items">
@@ -25,7 +48,7 @@ const Main = () => {
               <ContainerBlock padding="15px">
                 <div className="recipe-card">
                   <div className="recipe-card_image">
-                    <Image imageId={item.imageId} adaptive />
+                    <Image path={item.image?.path} adaptive />
                   </div>
 
                   <div className="recipe-card_head">

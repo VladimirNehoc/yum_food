@@ -11,6 +11,7 @@ module.exports = function (app) {
           recipesGroups,
           ingredients,
           ingredientsGroups,
+          uploads,
         } = models;
 
         const { id } = params.query;
@@ -20,6 +21,10 @@ module.exports = function (app) {
             id,
           },
           include: [
+            {
+              model: uploads,
+              as: 'image',
+            },
             {
               model: steps,
               as: 'steps',

@@ -24,6 +24,23 @@ const theme = {
   buttonBlockShadow: '0 0 8px 0 rgba(0, 0, 0, 0.2)',
 
   inputHeight: '34px',
+
+  color1: '#000',
+  color2: '#111',
+  color3: '#222',
+  color4: '#333',
+  color5: '#444',
+  color6: '#555',
+  color7: '#666',
+  color8: '#777',
+  color9: '#888',
+  color10: '#999',
+  color11: '#aaa',
+  color12: '#bbb',
+  color13: '#ccc',
+  color14: '#ddd',
+  color15: '#eee',
+  color16: '#fff',
 };
 
 export const light = {

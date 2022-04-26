@@ -1,9 +1,10 @@
 import React, { useRef, useMemo } from 'react';
 import PropTypes from 'prop-types';
-import cn from 'classnames';
-import { toast } from 'react-toastify';
 
+import { toast } from 'react-toastify';
+import cn from 'classnames';
 import _ from 'lodash';
+
 import StyledComponent from './StyledComponent';
 
 const allowedTypes = ['image/png', 'image/jpeg'];
@@ -43,7 +44,6 @@ const FileLoader = ({
     const selectFile = e.target.files[0];
 
     if (!selectFile) {
-      toast('Ошибка загрузки файла', { type: 'error' });
       return;
     }
 
@@ -123,12 +123,13 @@ const FileLoader = ({
 FileLoader.propTypes = {
   title: PropTypes.string,
   value: PropTypes.shape({
-    name: PropTypes.string,
+    name: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired,
   }),
   onChange: PropTypes.func.isRequired,
   required: PropTypes.bool,
   width: PropTypes.number,
-  error: PropTypes.bool,
+  error: PropTypes.string,
 };
 
 FileLoader.defaultProps = {

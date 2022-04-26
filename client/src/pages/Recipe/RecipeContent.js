@@ -14,7 +14,7 @@ const RecipeContent = () => {
       </div>
 
       <div className="image">
-        <Image imageId={recipeData.imageId} />
+        <Image path={recipeData.image?.path} />
       </div>
 
       <div className="info">

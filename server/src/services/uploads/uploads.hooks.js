@@ -1,23 +1,7 @@
 module.exports = {
   before: {
     all: [],
-    find: [async (context) => {
-      const { models } = context.app.get('sequelizeClient');
-
-      const { uploads } = models;
-
-      context.params.sequelize = {
-        raw: false,
-        include: [
-          {
-            model: uploads,
-            as: 'image',
-          },
-        ],
-      };
-
-      return context;
-    }],
+    find: [],
     get: [],
     create: [],
     update: [],

@@ -11,7 +11,6 @@ import Button from 'components/Button';
 import InputText from 'components/Forms/InputText';
 import InputNumber from 'components/Forms/InputNumber';
 import InputTextarea from 'components/Forms/InputTextarea';
-import Select from 'components/Forms/Select';
 import FileLoader from 'components/Forms/FileLoader';
 
 import ContainerBlock from 'containers/ContainerBlock';
@@ -55,7 +54,22 @@ const RecipePage = () => {
     dispatch(setEditData({ [field]: value }));
   };
 
-  const submit = () => {
+  const submit = (e) => {
+    e.preventDefault();
+
+    // const file = editItem.image;
+    // const formData = new FormData();
+
+    // formData.append('file', file);
+
+    // api.postFile('image-upload', formData)
+    //   .then((res) => {
+    //     console.log('FILE RESPONSE', res);
+    //   })
+    //   .catch((error) => {
+    //     toast(error.message, { type: 'error' });
+    //   });
+
     const checkErrors = checkValidation(editItem, fields);
 
     if (checkErrors) {
@@ -158,6 +172,7 @@ const RecipePage = () => {
         >
           Создать
         </Button>
+
       </ContainerBlock>
     </StyledComponent>
   );

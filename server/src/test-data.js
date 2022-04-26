@@ -54,6 +54,15 @@ module.exports = [
     ],
   },
   {
+    table: 'uploads',
+    items: [
+      {
+        id: '967af498-5fbb-4ded-9812-06de80978d56',
+        format: 'jpg',
+      },
+    ],
+  },
+  {
     table: 'recipes',
     items: [
       {

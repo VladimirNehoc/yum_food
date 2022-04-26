@@ -6,6 +6,7 @@ const recipesIngredients = require('./recipes-ingredients/recipes-ingredients.se
 const ingredients = require('./ingredients/ingredients.service');
 const units = require('./units/units.service');
 const ingredientsGroups = require('./ingredients-groups/ingredients-groups.service');
+const uploads = require('./uploads/uploads.service');
 
 const customServices = require('./customServices');
 
@@ -19,6 +20,7 @@ module.exports = function (app) {
   app.configure(ingredients);
   app.configure(units);
   app.configure(ingredientsGroups);
+  app.configure(uploads);
 
   app.configure(customServices);
 };

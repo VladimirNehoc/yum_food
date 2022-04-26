@@ -4,10 +4,10 @@ import PropTypes from 'prop-types';
 import StyledComponent from './StyledComponent';
 
 const Image = ({
-  imageId,
+  path,
   adaptive,
 }) => {
-  const src = `http://localhost:3333/uploads/${imageId}.jpg`;
+  const src = `http://localhost:3333/image-upload/${path}`;
 
   return (
     adaptive
@@ -25,7 +25,7 @@ const Image = ({
 };
 
 Image.propTypes = {
-  imageId: PropTypes.string.isRequired,
+  path: PropTypes.string.isRequired,
   adaptive: PropTypes.bool,
 };
 

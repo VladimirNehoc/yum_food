@@ -3,8 +3,6 @@ const configuration = require('@feathersjs/configuration');
 const express = require('@feathersjs/express');
 const cors = require('cors');
 const socketio = require('@feathersjs/socketio');
-const blobService = require('feathers-blob');
-const fs = require('fs-blob-store');
 const logger = require('./logger');
 
 const sequelize = require('./sequelize');
@@ -12,6 +10,8 @@ const sequelize = require('./sequelize');
 const middleware = require('./middleware');
 const services = require('./services');
 const appHooks = require('./app.hooks');
+
+const fileService = require('./file-service');
 
 const app = express(feathers());
 
@@ -31,12 +31,7 @@ app.use(express.urlencoded({ extended: true }));
 app.configure(express.rest());
 app.configure(socketio());
 
-// feathers-blob service
-const blobStorage = fs(`${__dirname}/uploads`);
-
-app.use('/uploads', (req, res) => {
-  res.sendFile(`${__dirname}${req.originalUrl}`);
-});
+app.configure(fileService);
 
 app.configure(sequelize);
 
