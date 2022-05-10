@@ -11,6 +11,7 @@ const allowedTypes = ['image/png', 'image/jpeg'];
 const maxFileSize = 5;
 
 const FileLoader = ({
+  className,
   title,
   value,
   onChange,
@@ -21,8 +22,10 @@ const FileLoader = ({
   const inputRef = useRef();
 
   const fileUrl = useMemo(() => {
-    if (value) {
+    if (value instanceof File) {
       return window.URL.createObjectURL(value);
+    } if (_.isObject(value)) {
+      return `http://localhost:3333/image-upload/${value.path}`;
     }
 
     return null;
@@ -66,6 +69,7 @@ const FileLoader = ({
     <StyledComponent
       containerWidth={containerWidth}
       containerHeight={containerHeight}
+      className={className}
     >
       {
         title && (
@@ -103,7 +107,7 @@ const FileLoader = ({
         {
           value && (
             <div className="file">
-              <img src={fileUrl} alt={value.name} />
+              <img src={fileUrl} alt={value?.name || value?.id} />
             </div>
           )
         }
@@ -121,10 +125,13 @@ const FileLoader = ({
 };
 
 FileLoader.propTypes = {
+  className: PropTypes.string,
   title: PropTypes.string,
   value: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    type: PropTypes.string.isRequired,
+    name: PropTypes.string,
+    type: PropTypes.string,
+    path: PropTypes.string,
+    id: PropTypes.string,
   }),
   onChange: PropTypes.func.isRequired,
   required: PropTypes.bool,
@@ -133,6 +140,7 @@ FileLoader.propTypes = {
 };
 
 FileLoader.defaultProps = {
+  className: '',
   title: null,
   value: null,
   required: false,

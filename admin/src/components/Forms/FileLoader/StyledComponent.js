@@ -15,12 +15,13 @@ export default styled.div`
     position: relative;
 
     &.not-valid {
-      outline: 0.5px solid ${(props) => props.theme.notValidColor};
+      outline: 1px solid ${(props) => props.theme.notValidColor};
     }
 
     & .error-message {
       position: absolute;
       text-align: right;
+      max-width: 80%;
       top: 5px;
       right: 5px;
       padding: 5px 10px;
@@ -52,7 +53,8 @@ export default styled.div`
       justify-content: center;
 
       span {
-        font-size: 60px;
+        font-size: calc(${(props) => props.containerWidth} / 6);
+        font-weight: 100;
         color: ${(props) => props.theme.inputPlaceholder}
       }
     }

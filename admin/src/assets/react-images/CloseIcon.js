@@ -2,7 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Basket = ({
+const Close = ({
   color,
   className,
   style,
@@ -12,16 +12,16 @@ const Basket = ({
   </svg>
 );
 
-Basket.propTypes = {
+Close.propTypes = {
   color: PropTypes.string,
   className: PropTypes.string,
   style: PropTypes.objectOf(PropTypes.any),
 };
 
-Basket.defaultProps = {
+Close.defaultProps = {
   color: '#333',
   className: '',
   style: {},
 };
 
-export default Basket;
+export default Close;

@@ -9,6 +9,10 @@ module.exports = function (app) {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
+    order: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
   }, {
     hooks: {
       beforeCount(options) {

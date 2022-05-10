@@ -6,6 +6,7 @@ import CloseIcon from 'assets/react-images/CloseIcon';
 import StyledComponent from './StyledComponent';
 
 const InputText = ({
+  className,
   title,
   value,
   placeholder,
@@ -13,6 +14,8 @@ const InputText = ({
   onChange,
   disabled,
   clearable,
+  errorInside,
+  hideErrorMessage,
   error,
 }) => {
   const inputRef = useRef();
@@ -26,7 +29,7 @@ const InputText = ({
   const inputClasses = cn({ 'not-valid': error });
 
   return (
-    <StyledComponent>
+    <StyledComponent className={className} errorInside={errorInside}>
       {
         title && (
           <div className="title">
@@ -54,7 +57,7 @@ const InputText = ({
       />
 
       {
-        error && (
+        error && !hideErrorMessage && (
           <div className="error-message">
             <span>{error}</span>
           </div>
@@ -79,6 +82,7 @@ const InputText = ({
 };
 
 InputText.propTypes = {
+  className: PropTypes.string,
   title: PropTypes.string,
   value: PropTypes.string.isRequired,
   placeholder: PropTypes.string,
@@ -86,15 +90,20 @@ InputText.propTypes = {
   onChange: PropTypes.func.isRequired,
   disabled: PropTypes.bool,
   clearable: PropTypes.bool,
+  errorInside: PropTypes.bool,
+  hideErrorMessage: PropTypes.bool,
   error: PropTypes.string,
 };
 
 InputText.defaultProps = {
+  className: '',
   title: null,
   placeholder: 'Введите данные',
   required: false,
   disabled: false,
   clearable: true,
+  errorInside: false,
+  hideErrorMessage: false,
   error: null,
 };
 

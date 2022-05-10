@@ -6,7 +6,23 @@ export default styled.button`
   color: ${(props) => props.theme.textColor};
   border-radius: ${(props) => props.theme.borderRadiusXS};
   box-shadow: ${(props) => (props.shadow ? props.theme.buttonBlockShadow : 'none')};
+  display: flex;
+  align-items: center;
   transition: .1s;
+
+  .loading-container {
+    position: relative;
+    left: 0px;
+    width: 0px;
+    opacity: 0;
+    transition: .3s;
+
+    &.loading {
+      width: 20px;
+      opacity: 1;
+      left: 10px;
+    }
+  }
 
   ${(props) => {
     if (props.size === 's') {

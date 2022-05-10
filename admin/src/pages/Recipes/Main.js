@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import _ from 'lodash';
+import { toast } from 'react-toastify';
 
 import Image from 'components/Image';
 import ContainerBlock from 'containers/ContainerBlock';
@@ -23,9 +24,12 @@ const Main = () => {
   useEffect(() => {
     dispatch(setIsLoadingItems(true));
 
-    api.get('recipes')
+    api.service('recipes').find()
       .then((res) => {
         dispatch(setItems(res.data));
+      })
+      .catch((err) => {
+        toast(err.message, { type: 'error' });
       })
       .finally(() => {
         dispatch(setIsLoadingItems(false));

@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export default styled.div`
   position: relative;
-  padding-bottom: 15px;
 
   .title {
     font-size: ${(props) => props.theme.fontSizeS};
@@ -29,7 +28,7 @@ export default styled.div`
     }
 
     &.not-valid {
-      outline: 0.5px solid ${(props) => props.theme.notValidColor};
+      outline: 1px solid ${(props) => props.theme.notValidColor};
     }
   }
 
@@ -37,7 +36,7 @@ export default styled.div`
     position: absolute;
     color: ${(props) => props.theme.notValidColor};
     font-size: ${(props) => props.theme.fontSizeS};
-    top: calc(100% - 17px);
+    top: ${(props) => (props.errorInside ? 'calc(100% - 1.4em)' : '100%')};
     right: 5px;
   }
 `;

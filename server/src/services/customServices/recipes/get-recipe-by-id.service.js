@@ -1,6 +1,6 @@
 module.exports = function (app) {
   const service = {
-    async find(params) {
+    async get(id) {
       try {
         const { models } = app.get('sequelizeClient');
 
@@ -11,15 +11,18 @@ module.exports = function (app) {
           recipesGroups,
           ingredients,
           ingredientsGroups,
+          recipesIngredients,
           uploads,
         } = models;
-
-        const { id } = params.query;
 
         const result = await recipes.findOne({
           where: {
             id,
           },
+          order: [
+            [steps, 'order', 'asc'],
+            [ingredients, recipesIngredients, 'order', 'asc'],
+          ],
           include: [
             {
               model: uploads,
@@ -28,6 +31,12 @@ module.exports = function (app) {
             {
               model: steps,
               as: 'steps',
+              include: [
+                {
+                  model: uploads,
+                  as: 'image',
+                },
+              ],
             },
             {
               model: difficulties,
@@ -41,7 +50,7 @@ module.exports = function (app) {
               model: ingredients,
               as: 'ingredients',
               through: {
-                attributes: ['unitId', 'count'],
+                attributes: ['unitId', 'count', 'order'],
               },
               include: [
                 {
@@ -56,10 +65,10 @@ module.exports = function (app) {
 
         return result;
       } catch (error) {
-        return error.message;
+        throw Error(error);
       }
     },
   };
 
-  app.use('/get-recipe-by-id', service);
+  app.use('get-recipe-by-id', service);
 };

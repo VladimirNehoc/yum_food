@@ -11,6 +11,7 @@ module.exports = {
       settings: path.resolve(__dirname, 'src/settings.js'),
       assets: path.resolve(__dirname, 'src/assets'),
       helpers: path.resolve(__dirname, 'src/helpers'),
+      hooks: path.resolve(__dirname, 'src/hooks'),
     },
   },
   entry: './src/index.js',

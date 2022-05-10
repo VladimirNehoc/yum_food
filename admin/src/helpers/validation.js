@@ -49,7 +49,10 @@ export default (state, fields) => {
         && (
           !state[name]
           || !_.trim(state[name])
-          || ((_.isArray(state[name]) || _.isObject(state[name])) && _.isEmpty(state[name]))
+          || (
+            (_.isArray(state[name]) || _.isObject(state[name]))
+            && !(state[name] instanceof File) && _.isEmpty(state[name])
+          )
         )
       ) {
         errors[name] = field.requiredMessage || 'Поле обязательно для заполнения';

@@ -5,6 +5,7 @@ import cn from 'classnames';
 import StyledComponent from './StyledComponent';
 
 const InputTextarea = ({
+  className,
   title,
   value,
   placeholder,
@@ -13,6 +14,8 @@ const InputTextarea = ({
   required,
   onChange,
   disabled,
+  errorInside,
+  hideErrorMessage,
   error,
 }) => {
   const inputRef = useRef();
@@ -20,7 +23,12 @@ const InputTextarea = ({
   const inputClasses = cn({ 'not-valid': error });
 
   return (
-    <StyledComponent rows={rows} resize={resize}>
+    <StyledComponent
+      className={className}
+      rows={rows}
+      resize={resize}
+      errorInside={errorInside}
+    >
       {
         title && (
           <div className="title">
@@ -48,7 +56,7 @@ const InputTextarea = ({
       />
 
       {
-        error && (
+        error && !hideErrorMessage && (
           <div className="error-message">
             <span>{error}</span>
           </div>
@@ -59,6 +67,7 @@ const InputTextarea = ({
 };
 
 InputTextarea.propTypes = {
+  className: PropTypes.string,
   title: PropTypes.string,
   value: PropTypes.string.isRequired,
   placeholder: PropTypes.string,
@@ -68,9 +77,12 @@ InputTextarea.propTypes = {
   error: PropTypes.string,
   resize: PropTypes.bool,
   rows: PropTypes.number,
+  errorInside: PropTypes.bool,
+  hideErrorMessage: PropTypes.bool,
 };
 
 InputTextarea.defaultProps = {
+  className: '',
   title: null,
   placeholder: 'Введите данные',
   required: false,
@@ -78,6 +90,8 @@ InputTextarea.defaultProps = {
   error: null,
   resize: false,
   rows: 4,
+  errorInside: false,
+  hideErrorMessage: false,
 };
 
 export default InputTextarea;

@@ -15,7 +15,6 @@ module.exports = function (app) {
     imageId: {
       type: DataTypes.UUID,
       allowNull: true,
-      unique: true,
     },
     title: {
       type: DataTypes.STRING,
@@ -42,6 +41,7 @@ module.exports = function (app) {
     try {
       const {
         recipes,
+        uploads,
       } = models;
 
       steps.belongsTo(recipes, {
@@ -50,6 +50,14 @@ module.exports = function (app) {
           allowNull: false,
         },
         as: 'recipe',
+      });
+
+      steps.belongsTo(uploads, {
+        foreignKey: {
+          name: 'imageId',
+          allowNull: false,
+        },
+        as: 'image',
       });
     } catch (error) {
       console.log(error.message);

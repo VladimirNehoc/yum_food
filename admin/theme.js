@@ -23,7 +23,7 @@ const theme = {
   containerBlockShadow: '0 0 15px 0 rgba(0, 0, 0, 0.2)',
   buttonBlockShadow: '0 0 8px 0 rgba(0, 0, 0, 0.2)',
 
-  inputHeight: '34px',
+  inputHeight: '38px',
 
   color1: '#000',
   color2: '#111',
@@ -69,7 +69,6 @@ export const light = {
   bgColorActive: '#ddd',
 
   textColor: '#222',
-  textColorPlaceholder: '#999',
   borderColor: '#777',
   textColorContrast: '#000',
 
@@ -107,7 +106,6 @@ export const dark = {
   bgColorActive: '#444',
 
   textColor: '#eee',
-  textColorPlaceholder: '#bbb',
   borderColor: '#777',
   textColorContrast: '#fff',
 

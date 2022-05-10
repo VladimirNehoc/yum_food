@@ -6,6 +6,7 @@ import CloseIcon from 'assets/react-images/CloseIcon';
 import StyledComponent from './StyledComponent';
 
 const InputNumber = ({
+  className,
   title,
   value,
   placeholder,
@@ -13,11 +14,21 @@ const InputNumber = ({
   onChange,
   disabled,
   clearable,
+  errorInside,
+  hideErrorMessage,
   error,
   min,
   max,
 }) => {
   const inputRef = useRef();
+
+  const handleChange = (e) => {
+    const val = e.target.value;
+
+    if (!Number.isNaN(Number(val))) {
+      onChange(String(Number(val)));
+    }
+  };
 
   const onClickClear = () => {
     onChange('');
@@ -28,7 +39,7 @@ const InputNumber = ({
   const inputClasses = cn({ 'not-valid': error });
 
   return (
-    <StyledComponent>
+    <StyledComponent className={className} errorInside={errorInside}>
       {
         title && (
           <div className="title">
@@ -52,13 +63,13 @@ const InputNumber = ({
         max={max}
         className={inputClasses}
         value={value}
-        onChange={(e) => onChange(e.target.value)}
+        onChange={handleChange}
         disabled={disabled}
         placeholder={placeholder}
       />
 
       {
-        error && (
+        error && !hideErrorMessage && (
           <div className="error-message">
             <span>{error}</span>
           </div>
@@ -83,25 +94,31 @@ const InputNumber = ({
 };
 
 InputNumber.propTypes = {
+  className: PropTypes.string,
   title: PropTypes.string,
-  value: PropTypes.string,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   placeholder: PropTypes.string,
   required: PropTypes.bool,
   onChange: PropTypes.func.isRequired,
   disabled: PropTypes.bool,
   clearable: PropTypes.bool,
+  errorInside: PropTypes.bool,
+  hideErrorMessage: PropTypes.bool,
   error: PropTypes.string,
   min: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   max: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
 
 InputNumber.defaultProps = {
+  className: '',
   title: null,
   value: '0',
   placeholder: 'Введите данные',
   required: false,
   disabled: false,
   clearable: true,
+  errorInside: false,
+  hideErrorMessage: false,
   error: null,
   min: null,
   max: null,

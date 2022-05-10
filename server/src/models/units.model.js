@@ -16,7 +16,7 @@ module.exports = function (app) {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    description: {
+    shortName: {
       type: DataTypes.STRING,
       allowNull: false,
     },

@@ -1,6 +1,7 @@
 const multer = require('multer');
 const path = require('path');
 const { v4: uuidv4 } = require('uuid');
+const _ = require('lodash');
 
 module.exports = (app) => {
   const storage = multer.diskStorage({
@@ -35,10 +36,7 @@ module.exports = (app) => {
       fileFilter: imageFilter,
     }).single('file');
 
-    upload(req, res, (err) => {
-      // req.file contains information of uploaded file
-      // req.body contains information of text fields, if there were any
-
+    upload(req, res, async (err) => {
       if (req.fileValidationError) {
         return res.send(req.fileValidationError);
       } if (!req.file) {
@@ -49,8 +47,14 @@ module.exports = (app) => {
         return res.send(err);
       }
 
-      // Display uploaded image for user validation
-      res.send(req.file);
+      const [fileId, fileFormat] = _.split(req.file.filename, '.');
+
+      const result = await app.service('uploads').create({
+        id: fileId,
+        format: fileFormat,
+      });
+
+      res.send(result);
     });
   });
 
