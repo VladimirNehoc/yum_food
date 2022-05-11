@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
 export default styled.div`
-position: relative;
+  position: relative;
+
   .title {
     font-size: ${(props) => props.theme.fontSizeS};
     margin-bottom: 5px;
