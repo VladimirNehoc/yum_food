@@ -1,6 +1,15 @@
 import styled from 'styled-components';
 
 export default styled.div`
+  position: relative;
+
+  .item-id {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    color: ${(props) => props.theme.bgColorActive};
+  }
+
   & .difficult-block {
     display: grid;
     grid-column-gap: 20px;
@@ -19,6 +28,8 @@ export default styled.div`
     .steps-list {
       & > div {
         margin-bottom: 10px;
+        display: flex;
+        align-items: center;
       }
 
       .step-item {
@@ -78,6 +89,8 @@ export default styled.div`
     .ingredients-list {
       & > div {
         margin-bottom: 10px;
+        display: flex;
+        align-items: center;
       }
 
       .ingredient-item {
@@ -87,6 +100,7 @@ export default styled.div`
         grid-template-rows: auto;
         grid-column-gap: 15px;
         grid-row-gap: 15px;
+        z-index: 0;
 
         &:not(:first-child) {
           margin-top: 10px;
@@ -125,6 +139,38 @@ export default styled.div`
     .action-block {
       display: flex;
       justify-content: end;
+    }
+  }
+
+  .remove-button {
+    position: relative;
+    border-radius: 50%;
+    width: 26px;
+    height: 26px;
+    background-color: #ff4d4d;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    font-weight: 500;
+    margin-left: 10px;
+    transition: .1s;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #ff2b2b;
+    }
+
+    &:before {
+      content: '';
+      position: absolute;
+      width: 44%;
+      height: 2px;
+      border-radius: 1px;
+      top: calc(50% - 1px);
+      right: 28%;
+      background-color: #fff;
     }
   }
 `;

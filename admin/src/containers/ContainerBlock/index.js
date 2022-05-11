@@ -1,3 +1,4 @@
+/* eslint-disable react/forbid-prop-types */
 import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 import PropTypes from 'prop-types';
@@ -32,11 +33,7 @@ ContainerBlock.propTypes = {
   }),
   shadow: PropTypes.bool,
   className: PropTypes.string,
-  children: PropTypes.oneOfType([
-    PropTypes.element,
-    PropTypes.arrayOf(PropTypes.element),
-    PropTypes.string,
-  ]).isRequired,
+  children: PropTypes.any.isRequired,
 };
 
 ContainerBlock.defaultProps = {

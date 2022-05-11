@@ -13,6 +13,7 @@ const {
   setEditIngredients,
   addIngredient,
   reorderIngredients,
+  removeIngredient,
 } = recipesActions;
 
 const IngredientsList = () => {
@@ -45,6 +46,24 @@ const IngredientsList = () => {
     [ingredients.length],
   );
 
+  const handleRemoveItem = (id, e) => {
+    const item = e.target.closest('.ingredient-item_container');
+
+    if (item) {
+      const height = item.offsetHeight;
+
+      item.style.opacity = '1';
+      item.style.height = `${height}px`;
+      item.style.transition = 'all .2s';
+      item.style.opacity = '0';
+      item.style.marginBottom = `${-(height)}px`;
+
+      setTimeout(() => {
+        dispatch(removeIngredient(id));
+      }, 300);
+    }
+  };
+
   return (
     <div className="ingredients-container">
       <div className="mt-30">
@@ -65,6 +84,7 @@ const IngredientsList = () => {
                     <div
                       ref={providedInner.innerRef}
                       {...providedInner.draggableProps}
+                      className="ingredient-item_container"
                     >
                       <IngredientBlock
                         onChange={(data) => onChange(ingredient.id, data)}
@@ -72,6 +92,20 @@ const IngredientsList = () => {
                         errors={errors.ingredients[ingredient.id]}
                         dragHandleProps={providedInner.dragHandleProps}
                       />
+
+                      {
+                        ingredients.length > 1 && (
+                          <div
+                            className="remove-button"
+                            role="button"
+                            tabIndex={0}
+                            onClick={(e) => handleRemoveItem(ingredient.id, e)}
+                            onKeyPress={(e) => handleRemoveItem(ingredient.id, e)}
+                          >
+                            <span />
+                          </div>
+                        )
+                      }
                     </div>
                   )}
                 </Draggable>
