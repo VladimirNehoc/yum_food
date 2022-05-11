@@ -100,7 +100,6 @@ export default styled.div`
         grid-template-rows: auto;
         grid-column-gap: 15px;
         grid-row-gap: 15px;
-        z-index: 0;
 
         &:not(:first-child) {
           margin-top: 10px;
