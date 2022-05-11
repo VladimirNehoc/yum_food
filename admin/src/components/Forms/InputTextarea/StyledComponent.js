@@ -19,7 +19,7 @@ export default styled.div`
     font-weight: ${(props) => props.theme.fontWeight};
     height: ${(props) => `${props.rows + 1}em`};
     font-size: ${(props) => props.theme.fontSizeS};
-    border-radius: ${(props) => props.theme.borderRadiusXS};
+    border-radius: ${(props) => props.theme.borderRadiusS};
     background-color: ${(props) => props.theme.inputBgColor};
     color: ${(props) => props.theme.textColor};
     

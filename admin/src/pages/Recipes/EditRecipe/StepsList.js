@@ -13,6 +13,7 @@ const {
   setEditSteps,
   addStep,
   reorderSteps,
+  removeStep,
 } = recipesActions;
 
 const StepsList = () => {
@@ -36,6 +37,24 @@ const StepsList = () => {
     dispatch(reorderSteps(source.index, destination.index));
   };
 
+  const handleRemoveItem = (id, e) => {
+    const item = e.target.closest('.step-item_container');
+
+    if (item) {
+      const height = item.offsetHeight;
+
+      item.style.opacity = '1';
+      item.style.height = `${height}px`;
+      item.style.transition = 'all .2s';
+      item.style.opacity = '0';
+      item.style.marginBottom = `${-(height)}px`;
+
+      setTimeout(() => {
+        dispatch(removeStep(id));
+      }, 300);
+    }
+  };
+
   return (
     <div className="steps-container">
       <div className="mt-30">
@@ -56,6 +75,7 @@ const StepsList = () => {
                     <div
                       ref={providedInner.innerRef}
                       {...providedInner.draggableProps}
+                      className="step-item_container"
                     >
                       <StepBlock
                         onChange={(data) => dispatch(setEditSteps(step.id, data))}
@@ -63,6 +83,20 @@ const StepsList = () => {
                         errors={errors.steps[step.id]}
                         dragHandleProps={providedInner.dragHandleProps}
                       />
+
+                      {
+                        steps.length > 1 && (
+                          <div
+                            className="remove-button"
+                            role="button"
+                            tabIndex={0}
+                            onClick={(e) => handleRemoveItem(step.id, e)}
+                            onKeyPress={(e) => handleRemoveItem(step.id, e)}
+                          >
+                            <span />
+                          </div>
+                        )
+                      }
                     </div>
                   )}
                 </Draggable>

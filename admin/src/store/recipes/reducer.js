@@ -18,7 +18,7 @@ export const initialIngredientItem = {
 
 export const initialState = {
   isLoadingItems: false,
-  isLoadingItemData: false,
+  isLoadingItemData: true,
   items: [],
   itemData: null,
   editItem: {

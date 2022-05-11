@@ -14,6 +14,7 @@ import InputTextarea from 'components/Forms/InputTextarea';
 import InputNumber from 'components/Forms/InputNumber';
 import FileLoader from 'components/Forms/FileLoader';
 import Select from 'components/Forms/Select';
+import SkeletonBlock from 'components/SkeletonBlock';
 
 import ContainerBlock from 'containers/ContainerBlock';
 
@@ -60,6 +61,7 @@ const RecipePage = () => {
   const dispatch = useDispatch();
 
   const {
+    isLoadingItemData,
     editItem,
     errors,
   } = useSelector((state) => state.recipes);
@@ -87,6 +89,10 @@ const RecipePage = () => {
       .finally(() => {
         dispatch(setIsLoadingItemData(false));
       });
+
+    return () => {
+      dispatch(setIsLoadingItemData(true));
+    };
   }, []);
 
   const setField = (field, value) => {
@@ -192,7 +198,13 @@ const RecipePage = () => {
     });
   };
 
-  if (_.isEmpty(editItem)) return null;
+  if (isLoadingItemData) {
+    return (
+      <ContainerBlock>
+        <SkeletonBlock height="500px" />
+      </ContainerBlock>
+    );
+  }
 
   return (
     <StyledComponent>
@@ -200,6 +212,12 @@ const RecipePage = () => {
         <h2 className="mt-5">
           { isNewRecipe ? 'Новый рецепт' : 'Редактирование рецепта' }
         </h2>
+
+        {
+          !isNewRecipe && (
+            <span className="item-id">{editItem.id}</span>
+          )
+        }
 
         <InputText
           title="Название"
@@ -305,7 +323,7 @@ const RecipePage = () => {
           spinnerColor="#222"
           isLoading={isSaving}
         >
-          {isNewRecipe ? 'Сохранить' : 'Создать'}
+          {isNewRecipe ? 'Создать' : 'Сохранить'}
         </Button>
 
       </ContainerBlock>
