@@ -79,7 +79,6 @@ const Select = ({
     menu: (provided) => ({
       ...provided,
       backgroundColor: theme.inputBgColor,
-      zIndex: 5,
     }),
     control: (provided) => ({
       ...provided,
@@ -87,6 +86,7 @@ const Select = ({
       boxShadow: 'none',
       outline: error ? `1px solid ${theme.notValidColor}` : 'none',
       border: 'none',
+      borderRadius: theme.borderRadiusS,
     }),
     singleValue: (provided) => ({
       ...provided,
