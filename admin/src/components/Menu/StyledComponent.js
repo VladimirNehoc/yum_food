@@ -21,7 +21,7 @@ export default styled.div`
 
     &_item {
       padding: 10px 15px;
-      margin: 0 -6px;
+      margin: 0 -6px 3px -6px;
       background-color: ${(props) => props.theme.bgCardColor};
       border-radius: ${(props) => props.theme.borderRadiusS};
       transition: .1s;

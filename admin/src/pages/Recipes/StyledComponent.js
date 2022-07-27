@@ -1,6 +1,17 @@
 import styled from 'styled-components';
 
 export default styled.div`
+  .page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    &_title {
+      font-size: 1.5em;
+      margin-left: 10px;
+    }
+  }
+
   .recipe-card {
     height: 140px;
     overflow: hidden;

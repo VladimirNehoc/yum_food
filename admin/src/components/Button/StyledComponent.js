@@ -9,6 +9,7 @@ export default styled.button`
   display: flex;
   align-items: center;
   transition: .1s;
+  height: fit-content;
 
   .loading-container {
     position: relative;

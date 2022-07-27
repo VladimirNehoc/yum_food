@@ -66,13 +66,13 @@ export const light = {
   bgColorHoverDefault: '#efefef',
   bgColorHoverButton: '#eee',
 
-  bgColorActive: '#ddd',
+  bgColorActive: '#dedede',
 
   textColor: '#222',
   borderColor: '#777',
   textColorContrast: '#000',
 
-  inputBgColor: '#dedede',
+  inputBgColor: '#eee',
   inputPlaceholder: '#999',
   notValidColor: '#ff0000',
 };

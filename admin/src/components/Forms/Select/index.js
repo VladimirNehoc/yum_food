@@ -48,11 +48,18 @@ const Select = ({
 
   const customStyles = {
     option: (provided, state) => {
-      const bgColor = state.isFocused || state.isActive ? theme.bgColorActive : theme.inputBgColor;
+      const bgColorDark = state.isFocused || state.isActive
+        ? theme.bgColorActive
+        : theme.inputBgColor;
+
+      const bgColorLight = state.isFocused || state.isActive
+        ? theme.color15
+        : '#fff';
+
       return {
         ...provided,
         color: theme.textColor,
-        backgroundColor: bgColor,
+        backgroundColor: theme.status === 'light' ? bgColorLight : bgColorDark,
         transition: '0.1s',
       };
     },
@@ -78,7 +85,8 @@ const Select = ({
     }),
     menu: (provided) => ({
       ...provided,
-      backgroundColor: theme.inputBgColor,
+      backgroundColor: theme.status === 'light' ? '#fff' : theme.inputBgColor,
+      zIndex: 100,
     }),
     control: (provided) => ({
       ...provided,

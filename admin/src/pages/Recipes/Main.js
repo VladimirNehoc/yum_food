@@ -5,7 +5,9 @@ import _ from 'lodash';
 import { toast } from 'react-toastify';
 
 import Image from 'components/Image';
+import Button from 'components/Button';
 import ContainerBlock from 'containers/ContainerBlock';
+import FiltersBlock from 'containers/FiltersBlock';
 
 import api from 'api';
 
@@ -37,8 +39,26 @@ const Main = () => {
   }, []);
 
   return (
-    <div className="list-items">
-      {
+    <>
+      <div className="page-header">
+        <div className="page-header_title">
+          <span>Рецепты</span>
+        </div>
+
+        <Link to="/recipes/edit">
+          <Button
+            spinnerColor="#222"
+            onClick={() => {}}
+          >
+            Новый рецепт
+          </Button>
+        </Link>
+      </div>
+
+      <FiltersBlock className="mt-15" />
+
+      <div className="list-items mt-15">
+        {
         _.map(items, (item) => {
           const description = item.description.length > 250
             ? `${item.description.slice(0, 250).split(' ').slice(0, -1).join(' ')}...`
@@ -68,7 +88,8 @@ const Main = () => {
           );
         })
       }
-    </div>
+      </div>
+    </>
   );
 };
 

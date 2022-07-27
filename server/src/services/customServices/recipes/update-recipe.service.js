@@ -23,6 +23,10 @@ module.exports = function (app) {
         await Promise.all(
           _.map(stepsData, (step) => steps.findByPk(step.id).then((res) => {
             if (res) {
+              if (step.deleted) {
+                return res.destroy();
+              }
+
               return app.service('steps').patch(step.id, { ...step, recipeId: recipeResult.id });
             }
 
@@ -41,6 +45,10 @@ module.exports = function (app) {
             })
               .then((res) => {
                 if (res) {
+                  if (ingredient.deleted) {
+                    return res.destroy();
+                  }
+
                   return res.update({ ...ingredient, recipeId: recipeResult.id });
                 }
 

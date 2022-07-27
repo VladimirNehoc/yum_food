@@ -55,6 +55,8 @@ const StepsList = () => {
     }
   };
 
+  const filteredSteps = _.filter(steps, (step) => !step.deleted);
+
   return (
     <div className="steps-container">
       <div className="mt-30">
@@ -69,7 +71,7 @@ const StepsList = () => {
               {...provided.droppableProps}
               ref={provided.innerRef}
             >
-              {_.map(steps, (step, index) => (
+              {_.map(filteredSteps, (step, index) => (
                 <Draggable key={step.id} draggableId={step.id} index={index}>
                   {(providedInner) => (
                     <div
@@ -85,7 +87,7 @@ const StepsList = () => {
                       />
 
                       {
-                        steps.length > 1 && (
+                        filteredSteps.length > 1 && (
                           <div
                             className="remove-button"
                             role="button"

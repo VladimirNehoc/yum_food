@@ -48,7 +48,12 @@ const getModifiedRecipe = (data) => {
       ingredientId,
       unitId,
       count,
+      fromApi: true,
     });
+  });
+
+  _.forEach(recipe.steps, (step, index) => {
+    recipe.steps[index].fromApi = true;
   });
 
   recipe.ingredients = ingredients;
@@ -71,24 +76,28 @@ const RecipePage = () => {
   const isNewRecipe = !editItem.id;
 
   useEffect(() => {
-    dispatch(setIsLoadingItemData(true));
+    if (!isNewRecipe) {
+      dispatch(setIsLoadingItemData(true));
 
-    api.service('get-recipe-by-id').get(recipeId)
-      .then((res) => {
-        if (_.isEmpty(res)) {
-          throw Error('Рецепт не найден');
-        }
+      api.service('get-recipe-by-id').get(recipeId)
+        .then((res) => {
+          if (_.isEmpty(res)) {
+            throw Error('Рецепт не найден');
+          }
 
-        const recipe = getModifiedRecipe(res);
+          const recipe = getModifiedRecipe(res);
 
-        dispatch(setRecipeDataFromApi(recipe));
-      })
-      .catch((err) => {
-        toast(err.message, { type: 'error' });
-      })
-      .finally(() => {
-        dispatch(setIsLoadingItemData(false));
-      });
+          dispatch(setRecipeDataFromApi(recipe));
+        })
+        .catch((err) => {
+          toast(err.message, { type: 'error' });
+        })
+        .finally(() => {
+          dispatch(setIsLoadingItemData(false));
+        });
+    } else {
+      dispatch(setIsLoadingItemData(false));
+    }
 
     return () => {
       dispatch(setIsLoadingItemData(true));

@@ -64,6 +64,8 @@ const IngredientsList = () => {
     }
   };
 
+  const filteredIngredients = _.filter(ingredients, (ingredient) => !ingredient.deleted);
+
   return (
     <div className="ingredients-container">
       <div className="mt-30">
@@ -78,7 +80,7 @@ const IngredientsList = () => {
               {...provided.droppableProps}
               ref={provided.innerRef}
             >
-              {_.map(ingredients, (ingredient, index) => (
+              {_.map(filteredIngredients, (ingredient, index) => (
                 <Draggable key={ingredient.id} draggableId={ingredient.id} index={index}>
                   {(providedInner) => (
                     <div
@@ -94,7 +96,7 @@ const IngredientsList = () => {
                       />
 
                       {
-                        ingredients.length > 1 && (
+                        filteredIngredients.length > 1 && (
                           <div
                             className="remove-button"
                             role="button"

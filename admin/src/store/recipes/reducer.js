@@ -184,7 +184,16 @@ const reducer = (state = initialState, { type, payload } = {}) => {
       };
     }
     case actions.REMOVE_STEP: {
-      const newSteps = _.remove(state.editItem.steps, (step) => step.id !== payload);
+      const currentSteps = state.editItem.steps;
+
+      const indexStepForRemove = _.findIndex(state.editItem.steps, (step) => step.id === payload);
+
+      if (currentSteps[indexStepForRemove].fromApi) {
+        currentSteps[indexStepForRemove].deleted = true;
+      } else {
+        _.remove(currentSteps, (step) => step.id === payload);
+      }
+
       const updatedErrors = { ...state.errors };
 
       delete updatedErrors.steps[payload.id];
@@ -193,7 +202,7 @@ const reducer = (state = initialState, { type, payload } = {}) => {
         ...state,
         editItem: {
           ...state.editItem,
-          steps: newSteps,
+          steps: currentSteps,
         },
         errors: updatedErrors,
       };
@@ -224,10 +233,19 @@ const reducer = (state = initialState, { type, payload } = {}) => {
       };
     }
     case actions.REMOVE_INGREDIENT: {
-      const newIngrdients = _.remove(
+      const currentIngredients = state.editItem.ingredients;
+
+      const indexIngredientForRemove = _.findIndex(
         state.editItem.ingredients,
-        (ingredient) => ingredient.id !== payload,
+        (ingredient) => ingredient.id === payload,
       );
+
+      if (currentIngredients[indexIngredientForRemove].fromApi) {
+        currentIngredients[indexIngredientForRemove].deleted = true;
+      } else {
+        _.remove(currentIngredients, (step) => step.id === payload);
+      }
+
       const updatedErrors = { ...state.errors };
 
       delete updatedErrors.ingredients[payload.id];
@@ -236,7 +254,7 @@ const reducer = (state = initialState, { type, payload } = {}) => {
         ...state,
         editItem: {
           ...state.editItem,
-          ingredients: newIngrdients,
+          ingredients: currentIngredients,
         },
         errors: updatedErrors,
       };
