@@ -55,7 +55,7 @@ const Main = () => {
         </Link>
       </div>
 
-      <FiltersBlock className="mt-15" />
+      <FiltersBlock className="mt-15" template="" />
 
       <div className="list-items mt-15">
         {

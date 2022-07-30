@@ -2,6 +2,7 @@
 import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 import PropTypes from 'prop-types';
+import InputDate from 'components/Forms/InputDate';
 import StyledComponent from './StyledComponent';
 
 const FiltersBlock = ({
@@ -12,10 +13,8 @@ const FiltersBlock = ({
 
   return (
     <StyledComponent className={className}>
-      <div className="filters mt-10">
-        <div style={{ backgroundColor: 'red', height: 50 }} />
-        <div style={{ backgroundColor: 'red', height: 50 }} />
-        <div style={{ backgroundColor: 'red', height: 50 }} />
+      <div className="filters">
+        <InputDate value="" onChange={() => {}} />
       </div>
     </StyledComponent>
   );

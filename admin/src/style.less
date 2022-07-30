@@ -60,3 +60,45 @@ textarea:focus, input:focus{
 .mb-30 {
   margin-bottom: 30px;
 }
+
+.unselectable {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none;   /* Chrome/Safari/Opera */
+  -khtml-user-select: none;    /* Konqueror */
+  -moz-user-select: none;      /* Firefox */
+  -ms-user-select: none;       /* Internet Explorer/Edge */
+  user-select: none;           /* Non-prefixed version, currently
+                                  not supported by any browser */
+}
+
+
+
+.smooth {
+  transition: opacity 100ms;
+  opacity: 1 !important;
+}
+
+.smooth-50 {
+  transition: opacity 50ms;
+  opacity: 1 !important;
+}
+
+.smooth-100 {
+  transition: opacity 100ms;
+  opacity: 1 !important;
+}
+
+.smooth-150 {
+  transition: opacity 150ms;
+  opacity: 1 !important;
+}
+
+.smooth-200 {
+  transition: opacity 200ms;
+  opacity: 1 !important;
+}
+
+.smooth-enable {
+  opacity: 0 !important;
+  pointer-events: none;
+}
