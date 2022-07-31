@@ -1,4 +1,7 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, {
+  useRef, useState, useEffect, useContext,
+} from 'react';
+import { ThemeContext } from 'styled-components';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 
@@ -24,6 +27,8 @@ const InputDate = ({
   const inputDateRef = useRef();
   const inputRef = useRef();
 
+  const theme = useContext(ThemeContext);
+
   const onClickClear = () => {
     onChange('');
 
@@ -45,6 +50,49 @@ const InputDate = ({
 
     return null;
   }, [inputRef]);
+
+  const setDate = (date) => {
+    console.log(date);
+    onChange(date);
+  };
+
+  const datePopoverStyles = {
+    container: {
+      borderRadius: theme.borderRadiusL,
+      boxShadow: theme.popoverBlockShadow,
+      padding: '15px',
+      backgroundColor: theme.bgCardColor,
+    },
+    header: {
+      color: theme.status === 'light' ? '#555' : '#bbb',
+      fontSize: '1.2em',
+      fontWeight: 'bold',
+      buttonColor: theme.status === 'light' ? '#555' : '#bbb',
+    },
+    dayWeeks: {
+      color: theme.color10,
+      fontSize: '1em',
+    },
+    days: {
+      color: theme.textColor,
+      selectedColor: theme.color16,
+      selectedBackgroundColor: theme.bgColor1,
+      hoverColor: theme.textColorReverse,
+      hoverBackgroundColor: theme.bgColorHoverButton,
+      hoverInRangeBackgroundColor: '#fff',
+      transition: '0.2s',
+    },
+    confirmButton: {
+      color: theme.color15,
+      borderRadius: theme.borderRadiusS,
+      backgroundColor: theme.bgColorHover1,
+    },
+    cancelButton: {
+      color: theme.textColor,
+      borderRadius: theme.borderRadiusS,
+      backgroundColor: theme.bgColorHoverButton,
+    },
+  };
 
   const inputClasses = cn({ 'not-valid': error });
 
@@ -102,6 +150,11 @@ const InputDate = ({
         containerRef={inputDateRef}
         isOpen={isOpenDatePopover}
         closePopover={() => setIsOpenDatePopover(false)}
+        onConfirm={(date) => setDate(date)}
+        mode="range"
+        showConfirm={false}
+        showCancel={false}
+        styles={datePopoverStyles}
       />
     </StyledComponent>
   );
@@ -124,7 +177,7 @@ InputDate.propTypes = {
 InputDate.defaultProps = {
   className: '',
   title: null,
-  placeholder: 'Введите данные',
+  placeholder: 'Выберите дату',
   required: false,
   disabled: false,
   clearable: true,

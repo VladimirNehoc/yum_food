@@ -22,6 +22,11 @@ const DatePopover = ({
   mode,
   value,
   format,
+  onConfirm,
+  showConfirm,
+  confirmTitle,
+  showCancel,
+  cancelTitle,
 }) => {
   const [activeDate, setActiveDate] = useState(moment());
 
@@ -110,6 +115,15 @@ const DatePopover = ({
     setActiveDate(currentActiveDate);
   };
 
+  const handleConfirm = (date) => {
+    onConfirm(date);
+    closePopover();
+  };
+
+  const handleCancel = () => {
+    closePopover();
+  };
+
   return (
     <StyledComponent className={componentClasses} styles={styles}>
       <div className="header">
@@ -149,20 +163,34 @@ const DatePopover = ({
       </div>
 
       {
-        mode === 'only'
-          ? (
-            <DateOnly
-              value={value}
-              format={format}
-              monthData={currentMonthData}
-            />
-          ) : (
-            <DateRange
-              value={value}
-              format={format}
-              monthData={currentMonthData}
-            />
-          )
+        isOpen && (
+          mode === 'only'
+            ? (
+              <DateOnly
+                value={value}
+                format={format}
+                monthData={currentMonthData}
+                onConfirm={handleConfirm}
+                onCancel={handleCancel}
+                showConfirm={showConfirm}
+                confirmTitle={confirmTitle}
+                showCancel={showCancel}
+                cancelTitle={cancelTitle}
+              />
+            ) : (
+              <DateRange
+                value={value}
+                format={format}
+                monthData={currentMonthData}
+                onConfirm={handleConfirm}
+                onCancel={handleCancel}
+                showConfirm={showConfirm}
+                confirmTitle={confirmTitle}
+                showCancel={showCancel}
+                cancelTitle={cancelTitle}
+              />
+            )
+        )
       }
     </StyledComponent>
   );
@@ -178,6 +206,11 @@ DatePopover.propTypes = {
     PropTypes.shape({ from: PropTypes.string, to: PropTypes.string }),
   ]),
   format: PropTypes.string,
+  onConfirm: PropTypes.func,
+  showConfirm: PropTypes.bool,
+  confirmTitle: PropTypes.string,
+  showCancel: PropTypes.bool,
+  cancelTitle: PropTypes.string,
   styles: PropTypes.shape({
     container: PropTypes.shape({
       borderRadius: PropTypes.string,
@@ -199,6 +232,9 @@ DatePopover.propTypes = {
       color: PropTypes.string,
       selectedColor: PropTypes.string,
       selectedBackgroundColor: PropTypes.string,
+      hoverColor: PropTypes.string,
+      hoverBackgroundColor: PropTypes.string,
+      hoverInRangeBackgroundColor: PropTypes.string,
       transition: PropTypes.string,
     }),
   }),
@@ -208,9 +244,14 @@ DatePopover.defaultProps = {
   containerRef: null,
   isOpen: false,
   closePopover: () => {},
-  mode: 'range',
+  mode: 'only',
   value: null,
   format: 'DD.MM.YYYY',
+  onConfirm: () => {},
+  showConfirm: true,
+  confirmTitle: 'Confirm',
+  showCancel: true,
+  cancelTitle: 'Cancel',
   styles: {
     container: {
       borderRadius: '6px',
@@ -232,7 +273,20 @@ DatePopover.defaultProps = {
       color: '#222',
       selectedColor: '#eee',
       selectedBackgroundColor: '#73a4eb',
+      hoverColor: '#222',
+      hoverBackgroundColor: '#ddd',
+      hoverInRangeBackgroundColor: '#fff',
       transition: '0.2s',
+    },
+    confirmButton: {
+      color: '#eee',
+      borderRadius: '4px',
+      backgroundColor: '#73a4eb',
+    },
+    cancelButton: {
+      color: '#222',
+      borderRadius: '4px',
+      backgroundColor: '#ccc',
     },
   },
 };

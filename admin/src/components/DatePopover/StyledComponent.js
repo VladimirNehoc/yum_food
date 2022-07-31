@@ -106,7 +106,7 @@ export default styled.div`
       &:hover {
         .days_day:before {
           transition: all ${(props) => props.styles.days.transition};
-          background-color: #ddd;
+          background-color: ${(props) => props.styles.days.hoverBackgroundColor};
         }
       }
 
@@ -128,7 +128,7 @@ export default styled.div`
 
       &:hover {
         .days_day:before {
-          background-color: #ddd;
+          background-color: ${(props) => props.styles.days.hoverBackgroundColor};
         }
       }
 
@@ -178,7 +178,7 @@ export default styled.div`
 
           &:hover {
             .days_day:before {
-              background-color: ${(props) => props.styles.container.backgroundColor};
+              background-color: ${(props) => props.styles.days.hoverInRangeBackgroundColor};
               opacity: .2;
             }
           }
@@ -202,6 +202,43 @@ export default styled.div`
             right: 2px;
             border-radius: 0 50% 50% 0;
           }
+        }
+      }
+    }
+  }
+
+  .footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .cancel-button {
+      & button {
+        border-radius: ${(props) => props.styles.cancelButton.borderRadius};
+        border: none;
+        padding: 5px 10px;
+        text-align: center;
+        min-width: 80px;
+        cursor: pointer;
+        background-color: ${(props) => props.styles.cancelButton.backgroundColor};
+        color: ${(props) => props.styles.cancelButton.color};
+      }
+    }
+
+    .confirm-button {
+      & button {
+        border-radius: ${(props) => props.styles.confirmButton.borderRadius};
+        border: none;
+        padding: 5px 10px;
+        text-align: center;
+        min-width: 80px;
+        cursor: pointer;
+        background-color: ${(props) => props.styles.confirmButton.backgroundColor};
+        color: ${(props) => props.styles.confirmButton.color};
+
+        &:disabled {
+          opacity: 0.7;
+          cursor: not-allowed;
         }
       }
     }

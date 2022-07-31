@@ -21,6 +21,7 @@ const theme = {
   fontSizeXL: '2rem',
 
   containerBlockShadow: '0 0 15px 0 rgba(0, 0, 0, 0.2)',
+  popoverBlockShadow: '0 0 15px 0 rgba(0, 0, 0, 0.2)',
   buttonBlockShadow: '0 0 8px 0 rgba(0, 0, 0, 0.2)',
 
   inputHeight: '38px',
@@ -69,6 +70,7 @@ export const light = {
   bgColorActive: '#dedede',
 
   textColor: '#222',
+  textColorReverse: '#eee',
   borderColor: '#777',
   textColorContrast: '#000',
 
@@ -83,6 +85,7 @@ export const dark = {
   status: 'dark',
 
   containerBlockShadow: 'none',
+  popoverBlockShadow: '0px 0px 5px 2px rgb(0 0 0 / 10%)',
   buttonBlockShadow: 'none',
 
   bgBodyColor: '#222',
@@ -106,6 +109,7 @@ export const dark = {
   bgColorActive: '#444',
 
   textColor: '#eee',
+  textColorReverse: '#222',
   borderColor: '#777',
   textColorContrast: '#fff',
 

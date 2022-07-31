@@ -19,8 +19,32 @@ const DateRange = ({
   value,
   format,
   monthData,
+  onConfirm,
+  onCancel,
+  showConfirm,
+  confirmTitle,
+  showCancel,
+  cancelTitle,
 }) => {
   const [selectedValue, setSelectedValue] = useState(checkDateValue(value, format));
+
+  const confirm = (date) => {
+    const confirmValue = date || _.clone(selectedValue);
+
+    confirmValue.from = confirmValue.from.format(format);
+
+    if (!confirmValue.to) {
+      confirmValue.to = confirmValue.from;
+    } else {
+      confirmValue.to = confirmValue.to.format(format);
+    }
+
+    onConfirm(confirmValue);
+  };
+
+  const cancel = () => {
+    onCancel();
+  };
 
   const selectDay = (date) => {
     if (selectedValue?.from && !selectedValue?.to) {
@@ -34,6 +58,12 @@ const DateRange = ({
           newValue.to = prev.from.clone();
         } else {
           return prev;
+        }
+
+        if (!showConfirm) {
+          setTimeout(() => {
+            confirm(newValue);
+          }, 0);
         }
 
         return newValue;
@@ -67,8 +97,9 @@ const DateRange = ({
   const daysClasses = classNames('days', 'range', 'unselectable', { 'has-range': hasSelectedRange });
 
   return (
-    <div className={daysClasses}>
-      {
+    <>
+      <div className={daysClasses}>
+        {
         _.map(monthData, (day) => {
           const selectedStart = day.date.isSame(selectedValue.from, 'day');
           const selectedEnd = day.date.isSame(selectedValue.to, 'day');
@@ -101,7 +132,41 @@ const DateRange = ({
           );
         })
       }
-    </div>
+      </div>
+
+      {
+        (showCancel || showConfirm) && (
+          <div className="footer mt-5">
+            <div className="cancel-button">
+              {
+                showCancel && (
+                  <button
+                    onClick={cancel}
+                    type="button"
+                  >
+                    {cancelTitle}
+                  </button>
+                )
+              }
+            </div>
+
+            <div className="confirm-button">
+              {
+                showConfirm && (
+                  <button
+                    onClick={confirm}
+                    type="button"
+                    disabled={!selectedValue.from}
+                  >
+                    {confirmTitle}
+                  </button>
+                )
+              }
+            </div>
+          </div>
+        )
+      }
+    </>
   );
 };
 
@@ -112,6 +177,12 @@ DateRange.propTypes = {
     text: PropTypes.number,
     date: PropTypes.objectOf(PropTypes.any),
   })).isRequired,
+  onConfirm: PropTypes.func.isRequired,
+  onCancel: PropTypes.func.isRequired,
+  showConfirm: PropTypes.bool.isRequired,
+  confirmTitle: PropTypes.string.isRequired,
+  showCancel: PropTypes.bool.isRequired,
+  cancelTitle: PropTypes.string.isRequired,
 };
 
 DateRange.defaultProps = {
